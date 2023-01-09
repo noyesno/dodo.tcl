@@ -1,0 +1,26 @@
+#======================================================================#
+# vim: set syntax=tcl: #
+#======================================================================#
+package require tcltest
+
+namespace import ::tcltest::test
+tcltest::configure -verbose "pass fail"
+#======================================================================#
+
+source [file root [info script]]
+
+package require dodo.tcl
+
+
+test "proc/n" "" {
+	proc/n hello {a} {
+		return "hello $a"
+	}
+
+	proc/n hello {a b} {
+		return "hello $a $b"
+	}
+
+	hello foo
+	hello foo bar
+} "hello foo bar"
