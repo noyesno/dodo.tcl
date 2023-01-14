@@ -24,3 +24,16 @@ test "proc/n" "" {
 	hello foo
 	hello foo bar
 } "hello foo bar"
+
+
+test "lcomp-map" "" {
+  lcomp {$x*2} x {1 2 3 4}
+} "2 4 6 8"
+
+test "lcomp-filter" "" {
+  lcomp {$x*2} x {1 2 3 4} {$x%2==0}
+} "4 8"
+
+test "infix" "" {
+  infix abc set 123 
+} "123"
