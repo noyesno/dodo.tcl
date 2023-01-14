@@ -1,0 +1,10 @@
+#!/usr/bin/env tclsh
+
+set ::argv [lassign $::argv tclfile]
+
+package require tcltest
+interp alias {} @test {} tcltest::test
+tcltest::configure -verbose "pass fail"
+
+source $tclfile
+
